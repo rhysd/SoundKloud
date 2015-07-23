@@ -34,7 +34,7 @@ task :tsc do
   ensure_cmd 'tsc'
 
   sh 'tsc -p browser'
-  # sh 'tsc renderer/*.ts --out build/renderer/index.js'
+  sh 'tsc renderer/*.ts --out build/renderer/index.js'
 end
 
 task :build => %i(slimrb tsd tsc)

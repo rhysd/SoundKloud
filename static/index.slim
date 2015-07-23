@@ -4,15 +4,10 @@ html
     title Tiny SoundCloud in Menu
     css:
       .window-wrapper {
-        height: 800px;
-        width: 600px;
+        width: 800px;
+        height: 600px;
       }
   body
     div.window-wrapper
       webview.window-wrapper#main-view src="https://soundcloud.com/connect?client_id=c259bb0ada8692d041954ac79e5eb394&response_type=token&redirect_uri=https%3A//soundcloud.com"
-    javascript:
-      require('electron-cookies');
-      var webview = document.getElementById('main-view');
-      webview.addEventListener('dom-ready', function(){
-        webview.openDevTools();
-      });
+    script src="../renderer/index.js"
