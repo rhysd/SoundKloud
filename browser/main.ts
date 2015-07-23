@@ -9,7 +9,11 @@ var mainMenu = require('menubar')({
     dir: __dirname,
     index: 'file://' + path.join(__dirname, '..', 'static', 'index.html'),
     icon: path.join(__dirname, '..', 'images', 'sc_gradient_24x12.png'),
-    width: 800,
-    height: 600,
+    width: 960,
+    height: 720,
 });
 
+// Debug
+// mainMenu.on('after-create-window', function(){
+//     mainMenu.window.openDevTools();
+// });

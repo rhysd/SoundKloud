@@ -2,7 +2,7 @@
   "name": "soundkloud",
   "productName": "SoundKloud",
   "version": "0.0.1",
-  "description": "Tiny SoundCloud Browser Embedded in Menu",
+  "description": "SoundCloud Browser Integrated with Menu",
   "main": "./build/browser/main.js",
   "bin": {
     "shiba": "./bin/cli.js"
