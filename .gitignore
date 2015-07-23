@@ -1,0 +1,11 @@
+node_modules
+npm-debug.log
+archive
+build/browser
+build/renderer
+build/static
+app.asar
+npm-publish
+typings
+browser/*.js
+renderer/*.js

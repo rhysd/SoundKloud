@@ -1,0 +1,30 @@
+{
+  "name": "soundkloud",
+  "productName": "SoundKloud",
+  "version": "0.0.1",
+  "description": "Tiny SoundCloud Browser Embedded in Menu",
+  "main": "./build/browser/main.js",
+  "bin": {
+    "shiba": "./bin/cli.js"
+  },
+  "author": "rhysd <lin90162@yahoo.co.jp>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rhysd/SoundKloud.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rhysd/SoundKloud/issues"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "electron-cookies": "^1.1.0",
+    "menubar": "^2.0.16"
+  },
+  "devDependencies": {
+    "electron-prebuilt": "^0.30.0"
+  },
+  "scripts": {
+    "build": "rake build",
+    "start": "./bin/cli.js"
+  }
+}
