@@ -1,5 +1,9 @@
 import * as path from 'path';
 require('crash-reporter').start();
+import * as app from 'app';
+import * as flashplugin from './flashplugin';
+
+flashplugin.enable();
 
 // XXX:
 // Use JavaScript style require() because 'menubar' identifier is
@@ -11,6 +15,9 @@ var mainMenu = require('menubar')({
     icon: path.join(__dirname, '..', 'images', 'sc_gradient_24x12.png'),
     width: 960,
     height: 720,
+    'web-preferences': {
+      'plugins': true
+    },
 });
 
 // Debug

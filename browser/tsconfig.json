@@ -9,6 +9,7 @@
   "files": [
     "../typings/tsd.d.ts",
     "lib.d.ts",
+    "flashplugin.ts",
     "main.ts"
   ]
 }
