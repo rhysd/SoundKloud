@@ -2,6 +2,7 @@ import * as path from 'path';
 require('crash-reporter').start();
 import * as app from 'app';
 import * as flashplugin from './flashplugin';
+import * as menu from './menu';
 
 flashplugin.enable();
 
@@ -20,7 +21,9 @@ var mainMenu = require('menubar')({
     },
 });
 
-// Debug
-// mainMenu.on('after-create-window', function(){
-//     mainMenu.window.openDevTools();
-// });
+mainMenu.on('after-create-window', function(){
+    // Debug
+    // mainMenu.window.openDevTools();
+
+    menu.set(mainMenu.window);
+});

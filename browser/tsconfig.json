@@ -10,6 +10,7 @@
     "../typings/tsd.d.ts",
     "lib.d.ts",
     "flashplugin.ts",
+    "menu.ts",
     "main.ts"
   ]
 }
