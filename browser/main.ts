@@ -3,6 +3,7 @@ require('crash-reporter').start();
 import * as app from 'app';
 import * as flashplugin from './flashplugin';
 import * as menu from './menu';
+import * as shortcuts from './keyshortcuts'
 
 flashplugin.enable();
 
@@ -24,6 +25,23 @@ var mainMenu = require('menubar')({
 mainMenu.on('after-create-window', function(){
     // Debug
     // mainMenu.window.openDevTools();
+
+    // TODO: Temporary
+    var g: shortcuts.GlobalShortcut = {
+        key: "ControlOrCommand+Shift+Space",
+        callback: function() {
+            if (mainMenu.window.isVisible()) {
+                mainMenu.hideWindow();
+            } else {
+                mainMenu.showWindow();
+            }
+        }
+    };
+
+    let s = new shortcuts.KeyShortcuts(mainMenu.window, {}, g)
+    mainMenu.window.on('closed', function(){
+        s.unregisterAll();
+    });
 
     menu.set(mainMenu.window);
 });
