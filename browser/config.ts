@@ -31,6 +31,7 @@ export function load(): Config {
         },
         shortcuts: {
             'CmdOrCtrl+Q': 'QuitApp',
+            'CmdOrCtrl+R': 'Reload',
         },
     };
 

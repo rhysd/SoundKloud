@@ -11,11 +11,10 @@ export class KeyShortcuts {
 
     constructor(
         browser_window: GitHubElectron.BrowserWindow,
-        config,
+        shortcuts: Object,
         global_shortcut?: GlobalShortcut
     ) {
         let sender =  browser_window.webContents;
-        const shortcuts = config.shortcuts;
         this.shortcuts = {};
 
         // Note: Generating below function in 'for' loop make jshint angry
