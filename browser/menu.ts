@@ -1,5 +1,6 @@
 import * as Menu from 'menu';
 import * as shell from 'shell';
+import * as app from 'app';
 
 export function set(main_window: GitHubElectron.BrowserWindow) {
     const template = [
@@ -9,23 +10,23 @@ export function set(main_window: GitHubElectron.BrowserWindow) {
             submenu: [
                 {
                     label: 'Reload',
-                    click: function(){ main_window.reload(); }
+                    click: main_window.reload,
                 },
                 {
                     label: 'DevTools',
-                    click: function(){ main_window.toggleDevTools(); }
+                    click: main_window.toggleDevTools,
                 },
                 {
                     label: 'Quit App',
                     accelerator: 'CommandOrControl+Q',
-                    click: function(){ main_window.close(); }
+                    click: app.quit,
                 },
                 {
                     type: 'separator'
                 },
                 {
                     label: 'About SoundKloud',
-                    click: function(){ shell.openExternal('https://github.com/rhysd/SoundKloud'); }
+                    click: () => shell.openExternal('https://github.com/rhysd/SoundKloud'),
                 }
             ]
         }
