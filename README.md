@@ -7,7 +7,7 @@ SoundKloud is a [SoundCloud](https://soundcloud.com) browser integrated with men
 
 ![overall screenshot](https://raw.githubusercontent.com/rhysd/screenshots/master/SoundKloud/overall.png)
 
-SoundCloud is an awesome web service I often use.  However, it provides only website in OS X.  I don't want to find a browser in my desktop and then find the SoundCloud tab in my browser only for changin, play and stop the music.  So I created this app.
+SoundCloud is an awesome web service I often use.  However, it provides only website in OS X.  I don't want to find a browser in my desktop and then find the SoundCloud tab in my browser only for skipping, stopping and playing the music.  So I created this app.
 You can access to the browser at any time via your Desktop menubar.
 
 ## Installation
