@@ -3,7 +3,7 @@ import * as app from 'app';
 import * as path from 'path';
 import * as fs from 'fs';
 
-interface FlashPluginConfig {
+export interface FlashPluginConfig {
     enabled: boolean;
     plugin_path: string;
     plugin_version: string;

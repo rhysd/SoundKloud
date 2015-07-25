@@ -18,7 +18,7 @@ var menuConfig = {
 };
 
 if (config.flash_plugin.enabled) {
-    flashplugin.enable();
+    flashplugin.enable(config.flash_plugin);
     menuConfig['web-preferences'] = {
         plugins: true,
     };

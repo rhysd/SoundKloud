@@ -21,3 +21,4 @@ declare class MenuBar implements NodeJS.EventEmitter {
     app: GitHubElectron.App;
     window: GitHubElectron.BrowserWindow;
 }
+
