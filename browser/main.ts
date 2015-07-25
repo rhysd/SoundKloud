@@ -20,8 +20,8 @@ var mainMenu = require('menubar')({
     dir: __dirname,
     index: 'file://' + path.join(__dirname, '..', 'static', 'index.html'),
     icon: path.join(__dirname, '..', 'images', 'sc_' + config.icon_type + '_24x12.png'),
-    width: 960,
-    height: 720,
+    width: 1000,
+    height: 750,
     'web-preferences': {
       'plugins': true
     },
