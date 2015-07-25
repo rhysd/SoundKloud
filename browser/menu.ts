@@ -17,7 +17,7 @@ export function set(main_window: GitHubElectron.BrowserWindow) {
                 },
                 {
                     label: 'Quit App',
-                    accelerator: 'ControlOrCommand+Q',
+                    accelerator: 'CommandOrControl+Q',
                     click: function(){ main_window.close(); }
                 },
                 {

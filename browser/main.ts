@@ -1,10 +1,10 @@
 import * as path from 'path';
-require('crash-reporter').start();
 import * as app from 'app';
 import * as flashplugin from './flashplugin';
 import * as menu from './menu';
 import * as shortcuts from './keyshortcuts'
 
+require('crash-reporter').start();
 flashplugin.enable();
 
 // XXX:
@@ -26,22 +26,20 @@ mainMenu.on('after-create-window', function(){
     // Debug
     // mainMenu.window.openDevTools();
 
+    menu.set(mainMenu.window);
+
     // TODO: Temporary
-    var g: shortcuts.GlobalShortcut = {
-        key: "ControlOrCommand+Shift+Space",
+    let g: shortcuts.GlobalShortcut = {
+        key: "CmdOrCtrl+S",
         callback: function() {
-            if (mainMenu.window.isVisible()) {
-                mainMenu.hideWindow();
-            } else {
-                mainMenu.showWindow();
-            }
+            mainMenu.tray.emit('clicked');
         }
     };
 
     let s = new shortcuts.KeyShortcuts(mainMenu.window, {}, g)
+
     mainMenu.window.on('closed', function(){
         s.unregisterAll();
     });
-
-    menu.set(mainMenu.window);
 });
+
