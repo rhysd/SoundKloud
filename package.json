@@ -1,11 +1,11 @@
 {
   "name": "soundkloud",
   "productName": "SoundKloud",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "SoundCloud Browser Integrated with Menu",
   "main": "./build/browser/main.js",
   "bin": {
-    "shiba": "./bin/cli.js"
+    "soundkloud": "./bin/cli.js"
   },
   "author": "rhysd <lin90162@yahoo.co.jp>",
   "repository": {

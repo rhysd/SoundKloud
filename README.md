@@ -1,14 +1,57 @@
-### TODO
+SoundKloud
+==========
+[![Build Status](https://travis-ci.org/rhysd/SoundKloud.svg)](https://travis-ci.org/rhysd/SoundKloud)
+[![npm version](https://badge.fury.io/js/soundkloud.svg)](http://badge.fury.io/js/soundkloud)
 
-- Keyboard shortcut to close app
-- Global keyboard shortcut to toggle window
-- Enable customization (icon color, etc)
+SoundKloud is a [SoundCloud](https://soundcloud.com) browser integrated with menu bar.
 
-### Issues
+![overall screenshot](https://raw.githubusercontent.com/rhysd/screenshots/master/SoundKloud/overall.png)
 
-- Some tracks require Flash
+SoundCloud is an awesome web service I often use.  However, it provides only website in OS X.  I don't want to find a browser in my desktop and then find the SoundCloud tab in my browser only for changin, play and stop the music.  So I created this app.
+You can access to the browser at any time via your Desktop menubar.
 
-### License
+## Installation
+
+### Release
+
+Not yet.
+
+### npm
+
+```sh
+$ npm install -g soundkloud
+$ soundkloud
+```
+
+### Manually
+
+```
+$ git clone https://github.com/rhysd/SoundKloud.git && cd SoundKloud
+$ npm install
+$ rake run
+```
+
+## Usage
+
+After starting SoundKloud, you can find SoundCloud icon in menubar of your desktop.
+
+![menubar](https://raw.githubusercontent.com/rhysd/screenshots/master/SoundKloud/menubar.png)
+
+SoundKloud is integrated with menu.  So you can access the SoundCloud browser as if item of the menu.  Just click it!
+
+At first time, you need to sign in to the page.  Please click "Sign in" in the page.  After that, you need not to login anymore.
+
+If you want to quit this app, please use key shortcut `Control+Q` (`Command+Q` for OS X).
+
+## Customization
+
+No document yet.
+
+## Issues
+
+- Hotkey doesn't work until window is created
+
+## License
 
     Copyright (c) 2015 rhysd
 
