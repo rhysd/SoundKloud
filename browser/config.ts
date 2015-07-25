@@ -3,10 +3,16 @@ import * as app from 'app';
 import * as path from 'path';
 import * as fs from 'fs';
 
+interface FlashPluginConfig {
+    enabled: boolean;
+    plugin_path: string;
+    plugin_version: string;
+}
+
 export interface Config {
     icon_type: string;
     hot_key: string;
-    enable_flash: boolean;
+    flash_plugin: FlashPluginConfig;
     shortcuts: Object;
 }
 
@@ -18,7 +24,11 @@ export function load(): Config {
     const default_config: Config = {
         icon_type: 'gradient',
         hot_key: 'CmdOrCtrl+Shift+S',
-        enable_flash: true,
+        flash_plugin: {
+            enabled: false,
+            plugin_path: '',
+            plugin_version: '',
+        },
         shortcuts: {
             'CmdOrCtrl+Q': 'QuitApp',
         },
