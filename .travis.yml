@@ -8,4 +8,4 @@ script:
     - tslint $(git ls-files | grep '.ts$')
     - tsc --version
     - tsc -p browser
-    - tsc renderer/*.ts --out build/renderer
+    - tsc renderer/*.ts --out build/renderer/index.js
