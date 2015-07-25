@@ -14,6 +14,7 @@ export interface Config {
     hot_key: string;
     flash_plugin: FlashPluginConfig;
     shortcuts: Object;
+    start_page: string;
 }
 
 export function load(): Config {
@@ -33,6 +34,7 @@ export function load(): Config {
             'CmdOrCtrl+Q': 'QuitApp',
             'CmdOrCtrl+R': 'Reload',
         },
+        start_page: 'https://soundcloud.com',
     };
 
     const file = path.join(app.getPath('userData'), 'config.yml');

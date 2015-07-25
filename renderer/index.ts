@@ -3,7 +3,10 @@
 require('electron-cookies');
 
 onload = function(){
+    const config = require('remote').require('./config').load();
+
     let webview = document.getElementById('main-view');
+    webview.src = config.start_page;
 
     // Debug
     // webview.addEventListener('dom-ready', function(){
