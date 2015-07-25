@@ -6,9 +6,6 @@ onload = function(){
     const config = require('remote').require('./config').load();
 
     let webview = document.getElementById('main-view');
-    if (config.flash_plugin.enabled) {
-        webview.setAttribute('plugins', '');
-    }
     webview.src = config.start_page;
 
     // Debug
