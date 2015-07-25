@@ -1,4 +1,5 @@
 import * as globalShortcut from 'global-shortcut';
+import * as app from 'app';
 
 export interface GlobalShortcut {
     key: string;
@@ -18,8 +19,6 @@ export class KeyShortcuts {
         this.shortcuts = {};
 
         // Note: Generating below function in 'for' loop make jshint angry
-        const quit_app = () => browser_window.close();
-        const toggle_devtools = () => browser_window.toggleDevTools();
         const key_receiver_for = function(s: string): () => void {
             return function() {
                 sender.send('keyinput', s);
@@ -34,12 +33,12 @@ export class KeyShortcuts {
             }
 
             if (shortcut === 'DevTools') {
-                this.shortcuts[k] = toggle_devtools;
+                this.shortcuts[k] = browser_window.toggleDevTools;
                 continue;
             }
 
             if (shortcut === 'QuitApp') {
-                this.shortcuts[k] = quit_app;
+                this.shortcuts[k] = app.quit;
                 continue;
             }
 
