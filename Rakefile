@@ -9,7 +9,13 @@ end
 
 def ensure_cmd(cmd)
   paths = ENV['PATH'].split(':').uniq
-  raise "'#{cmd}' command doesn't exist" unless paths.any?{|p| cmd_exists? "#{p}/#{cmd}" }
+
+  found = paths.find {|p| cmd_exists? "#{p}/#{cmd}" }
+  return "#{found}/#{cmd}" if found
+
+  return "#{BIN_DIR}/#{cmd}" if cmd_exists?"#{BIN_DIR}/#{cmd}"
+
+  raise "'#{cmd}' command doesn't exist"
 end
 
 task :dep do
@@ -17,24 +23,24 @@ task :dep do
 end
 
 task :slimrb do
-  ensure_cmd 'slimrb'
+  slimrb = ensure_cmd 'slimrb'
   mkdir_p 'build/static'
 
   Dir['static/*.slim'].each do |slim_file|
-    sh "slimrb #{slim_file} build/static/#{File.basename(slim_file, '.slim')}.html"
+    sh slimrb, slim_file, "build/static/#{File.basename(slim_file, '.slim')}.html"
   end
 end
 
 task :tsd do
-  ensure_cmd 'tsd'
-  sh 'tsd install'
+  tsd = ensure_cmd 'tsd'
+  sh tsd, 'install'
 end
 
 task :tsc do
-  ensure_cmd 'tsc'
+  tsc = ensure_cmd 'tsc'
 
-  sh 'tsc -p browser'
-  sh 'tsc renderer/*.ts --out build/renderer/index.js'
+  sh "#{tsc} -p browser"
+  sh "#{tsc} renderer/*.ts --out build/renderer/index.js"
 end
 
 task :build => %i(slimrb tsd tsc)
@@ -50,7 +56,7 @@ task :npm_publish => %i(build) do
 end
 
 task :asar => %i(build) do
-  raise "'asar' command doesn't exist" unless cmd_exists? "#{BIN_DIR}/asar"
+  asar = ensure_cmd 'asar'
 
   mkdir_p 'archive'
   begin
@@ -58,7 +64,7 @@ task :asar => %i(build) do
     cd 'archive' do
       sh 'npm install --production'
     end
-    sh "#{BIN_DIR}/asar pack archive app.asar"
+    sh "#{asar} pack archive app.asar"
   ensure
     rm_rf 'archive'
   end
