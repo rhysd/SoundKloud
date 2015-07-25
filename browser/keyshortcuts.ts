@@ -19,8 +19,8 @@ export class KeyShortcuts {
         this.shortcuts = {};
 
         // Note: Generating below function in 'for' loop make jshint angry
-        let quit_app = () => browser_window.close();
-        let toggle_devtools = () => browser_window.toggleDevTools();
+        const quit_app = () => browser_window.close();
+        const toggle_devtools = () => browser_window.toggleDevTools();
         const key_receiver_for = function(s: string): () => void {
             return function() {
                 sender.send('keyinput', s);
@@ -54,7 +54,7 @@ export class KeyShortcuts {
             this.registerAll();
         });
 
-        if (global_shortcut) {
+        if (global_shortcut && global_shortcut.key !== '') {
             this.global_shortcut = global_shortcut;
             this.registerGlobalShortcut();
         }
