@@ -10,16 +10,16 @@ export function set(main_window: GitHubElectron.BrowserWindow) {
             submenu: [
                 {
                     label: 'Reload',
-                    click: main_window.reload,
+                    click: () => main_window.reload(),
                 },
                 {
                     label: 'DevTools',
-                    click: main_window.toggleDevTools,
+                    click: () => main_window.toggleDevTools(),
                 },
                 {
                     label: 'Quit App',
                     accelerator: 'CommandOrControl+Q',
-                    click: app.quit,
+                    click: () => app.quit(),
                 },
                 {
                     type: 'separator'

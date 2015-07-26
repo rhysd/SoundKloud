@@ -33,12 +33,12 @@ export class KeyShortcuts {
             }
 
             if (shortcut === 'DevTools') {
-                this.shortcuts[k] = browser_window.toggleDevTools;
+                this.shortcuts[k] = () => browser_window.toggleDevTools();
                 continue;
             }
 
             if (shortcut === 'QuitApp') {
-                this.shortcuts[k] = app.quit;
+                this.shortcuts[k] = () => app.quit();
                 continue;
             }
 
