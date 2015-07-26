@@ -29,6 +29,7 @@ __Note:__ Windows package is removed temporarily because window location is not 
 ```sh
 $ npm install -g soundkloud
 $ soundkloud
+$ soundkloud --detach # Detach the process
 ```
 
 ### Manually

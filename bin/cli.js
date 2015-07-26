@@ -5,20 +5,12 @@
 var child_process = require('child_process');
 var electron = require('electron-prebuilt');
 var path = require('path');
-var fs = require('fs');
 
-var argv = [path.join(__dirname, '..')];
-var len = process.argv.length;
+var detached = process.argv.indexOf("--detach") != -1;
 
-if (len > 2) {
-    var last_arg = process.argv[len-1];
-    if (fs.existsSync(last_arg)) {
-        argv.push(last_arg);
-    } else {
-        argv.push(process.cwd());
-    }
-} else {
-    argv.push(process.cwd());
-}
+var spawn_option = {
+    stdio: detached ? 'ignore' : 'inherit',
+    detached: detached
+};
 
-child_process.spawn(electron, argv, {stdio: 'inherit'});
+child_process.spawn(electron, [path.join(__dirname, '..')], spawn_option).unref();
