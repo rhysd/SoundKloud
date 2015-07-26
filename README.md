@@ -22,6 +22,8 @@ Install SoundKloud from [Release Page](https://github.com/rhysd/SoundKloud/relea
 - __Linux:__ Simply use `soundkloud` executable in the directory.  If you want to install it to your system, set symbolic link to the executable from `/usr/local/bin`.
 - __Windows:__ Simply use `soundkloud.exe` in the directory.  No need to install.
 
+__Note:__ Windows package is removed temporarily because window location is not correct.
+
 ### npm
 
 ```sh
@@ -33,6 +35,8 @@ $ soundkloud
 
 ```
 $ git clone https://github.com/rhysd/SoundKloud.git && cd SoundKloud
+$ npm install -g tsc tsd
+$ gem install slim
 $ npm install
 $ rake run
 ```
