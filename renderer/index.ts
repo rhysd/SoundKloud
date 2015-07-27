@@ -3,7 +3,9 @@
 require('electron-cookies');
 
 onload = function(){
-    const config = require('remote').require('./config').load();
+    const remote = require('remote');
+    const config = remote.require('./config').load();
+    const shell = remote.require('shell');
 
     let webview = document.getElementById('main-view');
     webview.src = config.start_page;
@@ -17,6 +19,9 @@ onload = function(){
         console.log('guest window tries to open new window: ' + e.url);
         if (e.url.startsWith('https://soundcloud.com/connect')) {
             webview.src = 'https://soundcloud.com/connect?client_id=c259bb0ada8692d041954ac79e5eb394&response_type=token&redirect_uri=https%3A//soundcloud.com';
+        }
+        if (!e.url.startsWith('https://soundcloud.com/')) {
+          shell.openExternal(e.url);
         }
     });
 
@@ -32,4 +37,3 @@ onload = function(){
     KeyReceiver.on('Paste', () => webview.paste());
     KeyReceiver.on('SelectAll', () => webview.selectAll());
 }
-
