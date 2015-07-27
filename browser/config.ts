@@ -22,7 +22,7 @@ export function load(): Config {
         return this.cache
     }
 
-    const default_config: Config = {
+    this.cache = {
         icon_type: 'gradient',
         hot_key: 'CmdOrCtrl+Shift+S',
         flash_plugin: {
@@ -42,18 +42,31 @@ export function load(): Config {
         start_page: 'https://soundcloud.com',
     };
 
+    function mergeConfig(c1: Config, c2: Object) {
+        for (const k in c2) {
+            const v2 = c2[k];
+
+            if (k in c1) {
+                let v1 = c1[k];
+                if (typeof(v1) === 'object' && typeof(v2) === 'object') {
+                    mergeConfig(v1, v2);
+                    continue;
+                }
+            }
+
+            c1[k] = c2[k];
+        }
+    }
+
     const file = path.join(app.getPath('userData'), 'config.yml');
     try {
-        this.cache = yaml.load(fs.readFileSync(file, {encoding: 'utf8'}));
-        for (const key in default_config) {
-            if (!(key in this.cache)) {
-                this.cache[key] = default_config[key];
-            }
-        }
+        const user_config = yaml.load(fs.readFileSync(file, {encoding: 'utf8'}));
+        mergeConfig(this.cache, user_config);
     } catch(e) {
         console.log('Configuration file not found: ' + file);
-        this.cache = default_config;
     }
+
+    console.log(JSON.stringify(this.cache, null, 2));
 
     return this.cache;
 }
