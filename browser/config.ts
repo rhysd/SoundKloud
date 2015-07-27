@@ -15,6 +15,12 @@ export interface Config {
     flash_plugin: FlashPluginConfig;
     shortcuts: Object;
     start_page: string;
+    preload_js: string;
+    preload_css: string;
+}
+
+export function getConfigDir(): string {
+    return app.getPath('userData');
 }
 
 export function load(): Config {
@@ -22,7 +28,7 @@ export function load(): Config {
         return this.cache
     }
 
-    this.cache = {
+    this.cache = <Config>{
         icon_type: 'gradient',
         hot_key: 'CmdOrCtrl+Shift+S',
         flash_plugin: {
@@ -40,6 +46,8 @@ export function load(): Config {
             'CmdOrCtrl+N': 'ScrollDown',
         },
         start_page: 'https://soundcloud.com',
+        preload_js: null,
+        preload_css: null,
     };
 
     function mergeConfig(c1: Config, c2: Object) {
@@ -58,7 +66,7 @@ export function load(): Config {
         }
     }
 
-    const file = path.join(app.getPath('userData'), 'config.yml');
+    const file = path.join(getConfigDir(), 'config.yml');
     try {
         const user_config = yaml.load(fs.readFileSync(file, {encoding: 'utf8'}));
         mergeConfig(this.cache, user_config);

@@ -1,8 +1,10 @@
 declare function require(mod: string): any; // tsurai
 
 interface HTMLElement {
-    openDevTools: () => void;
     src: string;
+    preload: string;
+
+    openDevTools(): void;
     goBack(): void;
     goForward(): void;
     reload(): void;
@@ -13,4 +15,5 @@ interface HTMLElement {
     paste(): void;
     selectAll(): void;
     executeJavaScript(src: string): void;
+    insertCSS(src: string): void;
 }
