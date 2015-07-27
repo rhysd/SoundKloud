@@ -7,10 +7,15 @@ var electron = require('electron-prebuilt');
 var path = require('path');
 
 var detached = process.argv.indexOf("--detach") != -1;
+var args = [path.join(__dirname, '..')];
 
-var spawn_option = {
-    stdio: detached ? 'ignore' : 'inherit',
-    detached: detached
-};
-
-child_process.spawn(electron, [path.join(__dirname, '..')], spawn_option).unref();
+if (detached) {
+    child_process.spawn(electron, args, {
+        stdio: 'ignore',
+        detached: true
+    }).unref();
+} else {
+    child_process.spawn(electron, args, {
+        stdio: 'inherit'
+    });
+}
