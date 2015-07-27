@@ -20,24 +20,16 @@ onload = function(){
         }
     });
 
-    KeyReceiver.on('GoBack', function(){
-        webview.goBack();
-    });
-
-    KeyReceiver.on('GoForward', function(){
-        webview.goForward();
-    });
-
-    KeyReceiver.on('Reload', function(){
-        webview.reload();
-    });
-
-    KeyReceiver.on('ScrollDown', function(){
-        webview.executeJavaScript('window.scrollBy(0, window.innerHeight / 5)');
-    });
-
-    KeyReceiver.on('ScrollUp', function(){
-        webview.executeJavaScript('window.scrollBy(0, -window.innerHeight / 5)');
-    });
+    KeyReceiver.on('GoBack', () => webview.goBack());
+    KeyReceiver.on('GoForward', () => webview.goForward());
+    KeyReceiver.on('Reload', () => webview.reload());
+    KeyReceiver.on('ScrollDown', () => webview.executeJavaScript('window.scrollBy(0, window.innerHeight / 5)'));
+    KeyReceiver.on('ScrollUp', () => webview.executeJavaScript('window.scrollBy(0, -window.innerHeight / 5)'));
+    KeyReceiver.on('Undo', () => webview.undo());
+    KeyReceiver.on('Redo', () => webview.redo());
+    KeyReceiver.on('Cut', () => webview.cut());
+    KeyReceiver.on('Copy', () => webview.copy());
+    KeyReceiver.on('Paste', () => webview.paste());
+    KeyReceiver.on('SelectAll', () => webview.selectAll());
 }
 

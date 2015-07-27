@@ -6,5 +6,11 @@ interface HTMLElement {
     goBack(): void;
     goForward(): void;
     reload(): void;
+    undo(): void;
+    redo(): void;
+    cut(): void;
+    copy(): void;
+    paste(): void;
+    selectAll(): void;
     executeJavaScript(src: string): void;
 }

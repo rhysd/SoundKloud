@@ -33,6 +33,11 @@ export function load(): Config {
         shortcuts: {
             'CmdOrCtrl+Q': 'QuitApp',
             'CmdOrCtrl+R': 'Reload',
+            'CmdOrCtrl+X': 'Cut',
+            'CmdOrCtrl+C': 'Copy',
+            'CmdOrCtrl+V': 'Paste',
+            'CmdOrCtrl+P': 'ScrollUp',
+            'CmdOrCtrl+N': 'ScrollDown',
         },
         start_page: 'https://soundcloud.com',
     };
