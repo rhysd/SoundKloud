@@ -84,12 +84,16 @@ In some environment, some tracks on SoundCloud may require evil Flash player.  I
 
 ### `shortcuts`
 
-You can define shortcuts in SoundKloud.  This is an object of key input and action.  Available actions are `QuitApp`, `Reload`, `GoBack`, `GoForward`, `ScrollDown` and `ScrollUp`.
+You can define shortcuts in SoundKloud.  This is an object of key input and action.  Available actions are `QuitApp`, `Reload`, `GoBack`, `GoForward`, `ScrollDown`, `ScrollUp`, `Cut`, `Copy`, `Paste`, `selectAll`, `Undo` and `Redo`.
 Of course, you can use `soundcloud.com` website's key shortcuts (`j` for next track, `k` for previous track, and so on).
 
 ### `start_page`
 
 You can specify the page shown at start up of this app.  Default value is `https://soundcloud.com`
+
+### `preload_js`, `preload_css`
+
+Set the JavaScript file name and CSS file name which are loaded on the SoundCloud page.  They must be put in the application directory.
 
 ### Default Config
 
@@ -103,6 +107,11 @@ flash_plugin:
 shortcuts:
   "CmdOrCtrl+Q": "QuitApp"
   "CmdOrCtrl+R": "Reload"
+  "CmdOrCtrl+X": "Cut"
+  "CmdOrCtrl+C": "Copy"
+  "CmdOrCtrl+V": "Paste"
+  "CmdOrCtrl+P": "ScrollUp"
+  "CmdOrCtrl+N": "ScrollDown"
 start_page: "https://soundcloud.com"
 ```
 
