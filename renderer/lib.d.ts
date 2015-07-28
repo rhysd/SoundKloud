@@ -1,6 +1,6 @@
 declare function require(mod: string): any; // tsurai
 
-interface HTMLElement {
+interface ElectronWebview extends HTMLElement {
     src: string;
     preload: string;
 
@@ -17,3 +17,4 @@ interface HTMLElement {
     executeJavaScript(src: string): void;
     insertCSS(src: string): void;
 }
+

@@ -11,7 +11,7 @@ onload = function(){
     const user_config = config.load();
     const config_dir = config.getConfigDir();
 
-    let webview = document.getElementById('main-view');
+    let webview = <ElectronWebview>document.getElementById('main-view');
     webview.src = user_config.start_page;
 
     if (user_config.preload_js) {
