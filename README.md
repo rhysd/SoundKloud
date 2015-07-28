@@ -110,8 +110,8 @@ shortcuts:
   mod+x: "Cut"
   mod+c: "Copy"
   mod+v: "Paste"
-  mod+p: "PreviousTrack"
-  mod+n: "NextTrack"
+  mod+p: "ScrollUp"
+  mod+n: "ScrollDown"
   mod+s: "PlayStop"
 start_page: "https://soundcloud.com"
 ```
