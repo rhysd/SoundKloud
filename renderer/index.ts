@@ -62,4 +62,28 @@ onload = function(){
     receiver.on('SelectAll', () => webview.selectAll());
     receiver.on('QuitApp', () => remote.require('app').quit());
     receiver.on('DevTools', () => remote.getCurrentWindow().toggleDevTools());
+    receiver.on('NextTrack', () => webview.executeJavaScript(`
+                    (function(){
+                        const skip_next = document.querySelector('button.skipControl__next');
+                        if (skip_next) {
+                            skip_next.click();
+                        }
+                    })();
+                `));
+    receiver.on('PreviousTrack', () => webview.executeJavaScript(`
+                    (function(){
+                        const skip_previous = document.querySelector('button.skipControl__previous');
+                        if (skip_previous) {
+                            skip_previous.click();
+                        }
+                    })();
+                `));
+    receiver.on('PlayStop', () => webview.executeJavaScript(`
+                    (function(){
+                        const play_control = document.querySelector('button.playControl');
+                        if (play_control) {
+                            play_control.click();
+                        }
+                    })();
+                `));
 }
