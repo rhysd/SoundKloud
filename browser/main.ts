@@ -1,8 +1,8 @@
 import * as path from 'path';
 import * as app from 'app';
+import * as shortcut from 'global-shortcut';
 import * as flashplugin from './flashplugin';
 import * as menu from './menu';
-import * as shortcuts from './keyshortcuts'
 import {load as loadConfig} from './config';
 
 require('crash-reporter').start();
@@ -36,18 +36,17 @@ mainMenu.on('after-create-window', function(){
 
     menu.set(mainMenu.window);
 
-    // TODO: Temporary
-    let g: shortcuts.GlobalShortcut = {
-        key: config.hot_key,
-        callback: function() {
-            mainMenu.tray.emit('clicked');
-        }
-    };
-
-    let s = new shortcuts.KeyShortcuts(mainMenu.window, config.shortcuts, g);
+    // Define global hotkey
+    if (config.hot_key) {
+        let k = config.hot_key;
+        shortcut.register(
+                config.hot_key.replace(/mod/, 'CmdOrCtrl'),
+                () => mainMenu.tray.emit('clicked')
+            );
+    }
 
     mainMenu.window.on('closed', function(){
-        s.unregisterAll();
+        shortcut.unregisterAll();
     });
 });
 

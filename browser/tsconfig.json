@@ -12,7 +12,6 @@
     "flashplugin.ts",
     "menu.ts",
     "config.ts",
-    "keyshortcuts.ts",
     "main.ts"
   ]
 }

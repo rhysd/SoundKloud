@@ -16,6 +16,9 @@
     },
     "js-yaml/js-yaml.d.ts": {
       "commit": "f6c8ca47193fb67947944a3170912672ac3e908e"
+    },
+    "mousetrap/mousetrap.d.ts": {
+      "commit": "81fbc04544ad69e8aac41e0c516bb19f9298f67d"
     }
   }
 }

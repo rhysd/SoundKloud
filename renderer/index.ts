@@ -1,4 +1,5 @@
 /// <reference path="lib.d.ts" />
+/// <reference path="keyboard.ts" />
 
 require('electron-cookies');
 
@@ -11,6 +12,7 @@ onload = function(){
     const user_config = config.load();
     const config_dir = config.getConfigDir();
 
+    let receiver = new Keyboard.Receiver(remote);
     let webview = <ElectronWebview>document.getElementById('main-view');
     webview.src = user_config.start_page;
 
@@ -30,8 +32,7 @@ onload = function(){
             });
         }
 
-        // Debug
-        // webview.openDevTools();
+        receiver.on('WebviewDevTools', () => webview.openDevTools());
     });
 
     webview.addEventListener('new-window', function(e: any){
@@ -48,15 +49,17 @@ onload = function(){
         console.log(`Plugin crashed: ${e.name}(${e.version})`);
     });
 
-    KeyReceiver.on('GoBack', () => webview.goBack());
-    KeyReceiver.on('GoForward', () => webview.goForward());
-    KeyReceiver.on('Reload', () => webview.reload());
-    KeyReceiver.on('ScrollDown', () => webview.executeJavaScript('window.scrollBy(0, window.innerHeight / 5)'));
-    KeyReceiver.on('ScrollUp', () => webview.executeJavaScript('window.scrollBy(0, -window.innerHeight / 5)'));
-    KeyReceiver.on('Undo', () => webview.undo());
-    KeyReceiver.on('Redo', () => webview.redo());
-    KeyReceiver.on('Cut', () => webview.cut());
-    KeyReceiver.on('Copy', () => webview.copy());
-    KeyReceiver.on('Paste', () => webview.paste());
-    KeyReceiver.on('SelectAll', () => webview.selectAll());
+    receiver.on('GoBack', () => webview.goBack());
+    receiver.on('GoForward', () => webview.goForward());
+    receiver.on('Reload', () => webview.reload());
+    receiver.on('ScrollDown', () => webview.executeJavaScript('window.scrollBy(0, window.innerHeight / 5)'));
+    receiver.on('ScrollUp', () => webview.executeJavaScript('window.scrollBy(0, -window.innerHeight / 5)'));
+    receiver.on('Undo', () => webview.undo());
+    receiver.on('Redo', () => webview.redo());
+    receiver.on('Cut', () => webview.cut());
+    receiver.on('Copy', () => webview.copy());
+    receiver.on('Paste', () => webview.paste());
+    receiver.on('SelectAll', () => webview.selectAll());
+    receiver.on('QuitApp', () => remote.require('app').quit());
+    receiver.on('DevTools', () => remote.getCurrentWindow().toggleDevTools());
 }

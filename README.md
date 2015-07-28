@@ -71,7 +71,7 @@ You can specify the color of icon in menu bar.  The possible values are `gradien
 
 ### `hot_key`
 
-You can open SoundKloud without away from keyboard using hot key.  Please be careful to choose the hot key because this is a global shortcut.  Default value is `CmdOrCtrl+Shift+S`.  If you want to disable hot key, please specify empty string.
+You can open SoundKloud without away from keyboard using hot key.  Please be careful to choose the hot key because this is a global shortcut.  Default value is `mod+shift+s`.  If you want to disable hot key, please specify empty string.
 
 ### `flash_plugin`
 
@@ -84,7 +84,7 @@ In some environment, some tracks on SoundCloud may require evil Flash player.  I
 
 ### `shortcuts`
 
-You can define shortcuts in SoundKloud.  This is an object of key input and action.  Available actions are `QuitApp`, `Reload`, `GoBack`, `GoForward`, `ScrollDown`, `ScrollUp`, `Cut`, `Copy`, `Paste`, `selectAll`, `Undo` and `Redo`.
+You can define shortcuts in SoundKloud.  This is an object of key input and action.  Available actions are `QuitApp`, `Reload`, `GoBack`, `GoForward`, `ScrollDown`, `ScrollUp`, `Cut`, `Copy`, `Paste`, `selectAll`, `Undo` and `Redo`.  SoundKloud uses [mousetrap](https://craig.is/killing/mice), so the format of the keyshortcut is the same as it.  Please refer the document of mousetrap.
 Of course, you can use `soundcloud.com` website's key shortcuts (`j` for next track, `k` for previous track, and so on).
 
 ### `start_page`
@@ -99,19 +99,19 @@ Set the JavaScript file name and CSS file name which are loaded on the SoundClou
 
 ```yaml
 icon_type: "gradient"
-hot_key: "CmdOrCtrl+Shift+S"
+hot_key: "mod+shift+s"
 flash_plugin:
   enabled: false
   plugin_path: ""
   plugin_version: ""
 shortcuts:
-  "CmdOrCtrl+Q": "QuitApp"
-  "CmdOrCtrl+R": "Reload"
-  "CmdOrCtrl+X": "Cut"
-  "CmdOrCtrl+C": "Copy"
-  "CmdOrCtrl+V": "Paste"
-  "CmdOrCtrl+P": "ScrollUp"
-  "CmdOrCtrl+N": "ScrollDown"
+  mod+q: "QuitApp"
+  mod+r: "Reload"
+  mod+x: "Cut"
+  mod+c: "Copy"
+  mod+v: "Paste"
+  mod+p: "ScrollUp"
+  mod+n: "ScrollDown"
 start_page: "https://soundcloud.com"
 ```
 

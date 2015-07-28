@@ -37,13 +37,13 @@ export function load(): Config {
             plugin_version: '',
         },
         shortcuts: {
-            'CmdOrCtrl+Q': 'QuitApp',
-            'CmdOrCtrl+R': 'Reload',
-            'CmdOrCtrl+X': 'Cut',
-            'CmdOrCtrl+C': 'Copy',
-            'CmdOrCtrl+V': 'Paste',
-            'CmdOrCtrl+P': 'ScrollUp',
-            'CmdOrCtrl+N': 'ScrollDown',
+            'mod+q': 'QuitApp',
+            'mod+r': 'Reload',
+            'mod+x': 'Cut',
+            'mod+c': 'Copy',
+            'mod+v': 'Paste',
+            'mod+p': 'ScrollUp',
+            'mod+n': 'ScrollDown',
         },
         start_page: 'https://soundcloud.com',
         preload_js: null,
@@ -73,8 +73,6 @@ export function load(): Config {
     } catch(e) {
         console.log('Configuration file not found: ' + file);
     }
-
-    console.log(JSON.stringify(this.cache, null, 2));
 
     return this.cache;
 }
