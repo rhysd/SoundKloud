@@ -49,6 +49,8 @@ onload = function(){
         console.log(`Plugin crashed: ${e.name}(${e.version})`);
     });
 
+    receiver.onURL(url => webview.src = url);
+
     receiver.on('GoBack', () => webview.goBack());
     receiver.on('GoForward', () => webview.goForward());
     receiver.on('Reload', () => webview.reload());
