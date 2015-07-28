@@ -1,7 +1,7 @@
 {
   "name": "soundkloud",
   "productName": "SoundKloud",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "SoundCloud Browser Integrated with Menu",
   "main": "./build/browser/main.js",
   "bin": {
