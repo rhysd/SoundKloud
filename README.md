@@ -84,7 +84,7 @@ In some environment, some tracks on SoundCloud may require evil Flash player.  I
 
 ### `shortcuts`
 
-You can define shortcuts in SoundKloud.  This is an object of key input and action.  Available actions are `QuitApp`, `NextTrack`, `PreviousTrack`, `PlayStop`, `Reload`, `GoBack`, `GoForward`, `ScrollDown`, `ScrollUp`, `Cut`, `Copy`, `Paste`, `selectAll`, `Undo` and `Redo`.  SoundKloud uses [mousetrap](https://craig.is/killing/mice), so the format of the keyshortcut is the same as it.  Please refer the document of mousetrap.  If you set SoundCloud URL string as an action, the shortcut make the window jump to specified URL.
+You can define shortcuts in SoundKloud.  This is an object of key input and action.  Available actions are `QuitApp`, `NextTrack`, `PreviousTrack`, `PlayStop`, `Reload`, `GoBack`, `GoForward`, `ScrollDown`, `ScrollUp`, `ScrollTop`, `ScrollBottom`, `Cut`, `Copy`, `Paste`, `selectAll`, `Undo` and `Redo`.  SoundKloud uses [mousetrap](https://craig.is/killing/mice), so the format of the keyshortcut is the same as it.  Please refer the document of mousetrap.  If you set SoundCloud URL string as an action, the shortcut make the window jump to specified URL.
 Of course, you can use `soundcloud.com` website's key shortcuts (`j` for next track, `k` for previous track, and so on).
 
 ### `start_page`
