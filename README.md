@@ -118,7 +118,7 @@ start_page: "https://soundcloud.com"
 
 ## Issues
 
-- Hotkey doesn't work until window is created
+Nothing! :tada:
 
 ## License
 

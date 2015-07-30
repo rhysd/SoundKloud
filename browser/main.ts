@@ -15,6 +15,7 @@ var menuConfig = {
     icon: path.join(__dirname, '..', 'images', 'sc_' + config.icon_type + '_24x12.png'),
     width: 1000,
     height: 750,
+    preloadWindow: true,
 };
 
 if (config.flash_plugin.enabled) {
@@ -41,7 +42,7 @@ mainMenu.on('after-create-window', function(){
         let k = config.hot_key;
         shortcut.register(
                 config.hot_key.replace(/mod/, 'CmdOrCtrl'),
-                () => mainMenu.tray.emit('clicked')
+                () => mainMenu.tray.emit('clicked', undefined, {x: 0, y: 0, width: 0, height: 0})
             );
     }
 
