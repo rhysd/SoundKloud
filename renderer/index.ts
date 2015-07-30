@@ -12,7 +12,6 @@ onload = function(){
     const user_config = config.load();
     const config_dir = config.getConfigDir();
 
-    let receiver = new Keyboard.Receiver(remote);
     let webview = <ElectronWebview>document.getElementById('main-view');
     webview.src = user_config.start_page;
 
@@ -32,7 +31,55 @@ onload = function(){
             });
         }
 
+        let receiver = new Keyboard.Receiver(remote);
+
+        receiver.onURL(url => webview.src = url);
+
         receiver.on('WebviewDevTools', () => webview.openDevTools());
+        receiver.on('GoBack', () => webview.goBack());
+        receiver.on('GoForward', () => webview.goForward());
+        receiver.on('Reload', () => webview.reload());
+        receiver.on('ScrollDown', () => webview.executeJavaScript('window.scrollBy(0, window.innerHeight / 5)'));
+        receiver.on('ScrollUp', () => webview.executeJavaScript('window.scrollBy(0, -window.innerHeight / 5)'));
+        receiver.on('ScrollTop', () => webview.executeJavaScript('window.scrollTo(0, 0)'));
+        receiver.on('ScrollBottom', () => webview.executeJavaScript('window.scrollTo(0, document.body.scrollHeight)'));
+        receiver.on('Undo', () => webview.undo());
+        receiver.on('Redo', () => webview.redo());
+        receiver.on('Cut', () => webview.cut());
+        receiver.on('Copy', () => webview.copy());
+        receiver.on('Paste', () => webview.paste());
+        receiver.on('SelectAll', () => webview.selectAll());
+        receiver.on('QuitApp', () => remote.require('app').quit());
+        receiver.on('DevTools', () => remote.getCurrentWindow().toggleDevTools());
+        receiver.on('NextTrack', () => webview.executeJavaScript(`
+                        (function(){
+                            const skip_next = document.querySelector('button.skipControl__next');
+                            if (skip_next) {
+                                skip_next.click();
+                            }
+                        })();
+                    `));
+        receiver.on('PreviousTrack', () => webview.executeJavaScript(`
+                        (function(){
+                            const skip_previous = document.querySelector('button.skipControl__previous');
+                            if (skip_previous) {
+                                skip_previous.click();
+                            }
+                        })();
+                    `));
+        receiver.on('PlayStop', () => webview.executeJavaScript(`
+                        (function(){
+                            const play_control = document.querySelector('button.playControl');
+                            if (play_control) {
+                                play_control.click();
+                            }
+                        })();
+                    `));
+
+        // Note:
+        // Focus to webview to enable shortcuts on shoundcloud.com.
+        remote.getCurrentWindow().on('focus', () => webview.focus());
+        webview.focus();
     });
 
     webview.addEventListener('new-window', function(e: any){
@@ -48,46 +95,4 @@ onload = function(){
     webview.addEventListener('plugin-crashed', function(e: any){
         console.log(`Plugin crashed: ${e.name}(${e.version})`);
     });
-
-    receiver.onURL(url => webview.src = url);
-
-    receiver.on('GoBack', () => webview.goBack());
-    receiver.on('GoForward', () => webview.goForward());
-    receiver.on('Reload', () => webview.reload());
-    receiver.on('ScrollDown', () => webview.executeJavaScript('window.scrollBy(0, window.innerHeight / 5)'));
-    receiver.on('ScrollUp', () => webview.executeJavaScript('window.scrollBy(0, -window.innerHeight / 5)'));
-    receiver.on('ScrollTop', () => webview.executeJavaScript('window.scrollTo(0, 0)'));
-    receiver.on('ScrollBottom', () => webview.executeJavaScript('window.scrollTo(0, document.body.scrollHeight)'));
-    receiver.on('Undo', () => webview.undo());
-    receiver.on('Redo', () => webview.redo());
-    receiver.on('Cut', () => webview.cut());
-    receiver.on('Copy', () => webview.copy());
-    receiver.on('Paste', () => webview.paste());
-    receiver.on('SelectAll', () => webview.selectAll());
-    receiver.on('QuitApp', () => remote.require('app').quit());
-    receiver.on('DevTools', () => remote.getCurrentWindow().toggleDevTools());
-    receiver.on('NextTrack', () => webview.executeJavaScript(`
-                    (function(){
-                        const skip_next = document.querySelector('button.skipControl__next');
-                        if (skip_next) {
-                            skip_next.click();
-                        }
-                    })();
-                `));
-    receiver.on('PreviousTrack', () => webview.executeJavaScript(`
-                    (function(){
-                        const skip_previous = document.querySelector('button.skipControl__previous');
-                        if (skip_previous) {
-                            skip_previous.click();
-                        }
-                    })();
-                `));
-    receiver.on('PlayStop', () => webview.executeJavaScript(`
-                    (function(){
-                        const play_control = document.querySelector('button.playControl');
-                        if (play_control) {
-                            play_control.click();
-                        }
-                    })();
-                `));
 }
