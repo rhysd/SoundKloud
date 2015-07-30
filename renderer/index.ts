@@ -75,6 +75,14 @@ onload = function(){
                             }
                         })();
                     `));
+        receiver.on('Shuffle', () => webview.executeJavaScript(`
+                        (function(){
+                            const shuffle_button = document.querySelector('div.shuffleButton');
+                            if (shuffle_button) {
+                                shuffle_button.firstElementChild.click();
+                            }
+                        })();
+                    `));
 
         // Note:
         // Focus to webview to enable shortcuts on shoundcloud.com.
