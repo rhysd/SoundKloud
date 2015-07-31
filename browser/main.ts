@@ -36,6 +36,7 @@ mainMenu.on('after-create-window', function(){
     // mainMenu.window.openDevTools();
 
     menu.set(mainMenu.window);
+    mainMenu.tray.setToolTip('Show Menu Window');
 
     // Define global hotkey
     if (config.hot_key) {
