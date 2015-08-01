@@ -47,6 +47,8 @@ mainMenu.on('after-create-window', function(){
             );
     }
 
+    mainMenu.window.setVisibleOnAllWorkspaces(true);
+
     mainMenu.window.on('closed', function(){
         shortcut.unregisterAll();
     });
