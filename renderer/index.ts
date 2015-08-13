@@ -83,6 +83,7 @@ onload = function(){
                             }
                         })();
                     `));
+        receiver.on('Open', () => shell.openExternal(webview.getUrl()));
 
         // Note:
         // Focus to webview to enable shortcuts on shoundcloud.com.

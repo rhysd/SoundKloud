@@ -45,6 +45,7 @@ export function load(): Config {
             'mod+p': 'ScrollUp',
             'mod+n': 'ScrollDown',
             'mod+s': 'PlayStop',
+            'mod+o': 'Open',
         },
         start_page: 'https://soundcloud.com',
         preload_js: null,

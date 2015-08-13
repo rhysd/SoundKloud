@@ -16,5 +16,6 @@ interface ElectronWebview extends HTMLElement {
     selectAll(): void;
     executeJavaScript(src: string): void;
     insertCSS(src: string): void;
+    getUrl(): string;
 }
 

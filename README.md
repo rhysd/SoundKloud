@@ -113,6 +113,7 @@ shortcuts:
   mod+p: "ScrollUp"
   mod+n: "ScrollDown"
   mod+s: "PlayStop"
+  mod+o: "Open"
 start_page: "https://soundcloud.com"
 ```
 
