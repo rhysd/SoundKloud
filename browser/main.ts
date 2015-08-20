@@ -54,7 +54,7 @@ mainMenu.on('after-create-window', function(){
         let k = config.hot_key;
         shortcut.register(
                 config.hot_key.replace(/mod/, 'CmdOrCtrl'),
-                () => mainMenu.tray.emit('clicked', undefined, {x: 0, y: 0, width: 0, height: 0})
+                () => mainMenu.tray.emit('clicked', {}, {x: 0, y: 0, width: 0, height: 0})
             );
     }
 
