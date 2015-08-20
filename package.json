@@ -17,6 +17,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "auto-launch": "^0.1.18",
     "electron-cookies": "^1.1.0",
     "js-yaml": "^3.3.1",
     "menubar": "^2.0.17",

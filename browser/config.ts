@@ -15,6 +15,7 @@ export interface Config {
     flash_plugin: FlashPluginConfig;
     shortcuts: Object;
     start_page: string;
+    auto_start: boolean;
     preload_js: string;
     preload_css: string;
 }
@@ -48,6 +49,7 @@ export function load(): Config {
             'mod+o': 'Open',
         },
         start_page: 'https://soundcloud.com',
+        auto_start: false,
         preload_js: null,
         preload_css: null,
     };

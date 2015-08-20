@@ -22,3 +22,22 @@ declare class MenuBar implements NodeJS.EventEmitter {
     window: GitHubElectron.BrowserWindow;
 }
 
+declare module AutoLaunch {
+    interface LaunchOption {
+        name: string;
+        isHidden?: boolean;
+        path?: string;
+    }
+
+    class AutoLaunch {
+        constructor(opts: LaunchOption);
+        enable(callback?: (err: Error) => void): void;
+        disable(callback?: (err: Error) => void): void;
+        isEnabled(callback?: (err: Error) => void): boolean;
+    }
+}
+
+declare module "auto-launch" {
+    var al: typeof AutoLaunch.AutoLaunch;
+    export = al;
+}

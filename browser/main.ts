@@ -4,6 +4,7 @@ import * as shortcut from 'global-shortcut';
 import * as flashplugin from './flashplugin';
 import * as menu from './menu';
 import {load as loadConfig} from './config';
+import * as AutoLaunch from 'auto-launch';
 
 require('crash-reporter').start();
 
@@ -23,6 +24,16 @@ if (config.flash_plugin.enabled) {
     menuConfig['web-preferences'] = {
         plugins: true,
     };
+}
+
+var auto_launcher = new AutoLaunch({
+        name: 'SoundKloud',
+        path: path.resolve(app.getPath('exe') + '/../../..'),
+    });
+if (config.auto_start) {
+    auto_launcher.enable();
+} else {
+    auto_launcher.disable();
 }
 
 // XXX:
