@@ -6,19 +6,19 @@
   "bundle": "typings/tsd.d.ts",
   "installed": {
     "github-electron/github-electron-main.d.ts": {
-      "commit": "581563c4684d405afec14260ba79a89a52666c09"
+      "commit": "38fb591c6eba840e0b53d1110302b8e4fb04651c"
     },
     "github-electron/github-electron.d.ts": {
-      "commit": "581563c4684d405afec14260ba79a89a52666c09"
+      "commit": "38fb591c6eba840e0b53d1110302b8e4fb04651c"
     },
     "node/node.d.ts": {
-      "commit": "581563c4684d405afec14260ba79a89a52666c09"
+      "commit": "38fb591c6eba840e0b53d1110302b8e4fb04651c"
     },
     "js-yaml/js-yaml.d.ts": {
-      "commit": "f6c8ca47193fb67947944a3170912672ac3e908e"
+      "commit": "38fb591c6eba840e0b53d1110302b8e4fb04651c"
     },
     "mousetrap/mousetrap.d.ts": {
-      "commit": "81fbc04544ad69e8aac41e0c516bb19f9298f67d"
+      "commit": "38fb591c6eba840e0b53d1110302b8e4fb04651c"
     }
   }
 }
